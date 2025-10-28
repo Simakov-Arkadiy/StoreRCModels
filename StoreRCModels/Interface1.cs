@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace StoreRCModels
 {
-    internal interface Interface1
+    public interface IRCModelsRepository
     {
+        RCModel[] GetAllByTitel(string titel);
     }
 }

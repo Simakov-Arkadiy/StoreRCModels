@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreRCModels", "StoreRCModels\StoreRCModels.csproj", "{2A4C04F4-6D9A-484B-AC2C-D08299EE29D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "domain", "domain", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infractructure", "infractructure", "{9095A6D4-1CC2-435E-89AC-1D6F0EE61701}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreRCModel.Memory", "infractructure\StoreRCModel.Memory\StoreRCModel.Memory.csproj", "{6263BDB8-50BF-44DB-9A9B-A03230DAB211}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "prezentaition", "prezentaition", "{D76D1EBB-CD7E-4709-9A94-DAB5300BA1FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreRCModel.Web", "prezentaition\StoreRCModel.Web\StoreRCModel.Web.csproj", "{7ADD94E2-18F2-42BD-82AB-1A0CB34D96D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +25,22 @@ Global
 		{2A4C04F4-6D9A-484B-AC2C-D08299EE29D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A4C04F4-6D9A-484B-AC2C-D08299EE29D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A4C04F4-6D9A-484B-AC2C-D08299EE29D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6263BDB8-50BF-44DB-9A9B-A03230DAB211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6263BDB8-50BF-44DB-9A9B-A03230DAB211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6263BDB8-50BF-44DB-9A9B-A03230DAB211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6263BDB8-50BF-44DB-9A9B-A03230DAB211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ADD94E2-18F2-42BD-82AB-1A0CB34D96D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ADD94E2-18F2-42BD-82AB-1A0CB34D96D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ADD94E2-18F2-42BD-82AB-1A0CB34D96D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ADD94E2-18F2-42BD-82AB-1A0CB34D96D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2A4C04F4-6D9A-484B-AC2C-D08299EE29D8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{6263BDB8-50BF-44DB-9A9B-A03230DAB211} = {9095A6D4-1CC2-435E-89AC-1D6F0EE61701}
+		{7ADD94E2-18F2-42BD-82AB-1A0CB34D96D9} = {D76D1EBB-CD7E-4709-9A94-DAB5300BA1FB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {454BA1A9-150A-43A7-BA2E-0DFC599D5C11}

@@ -1,6 +1,6 @@
 ﻿namespace StoreRCModels
 {
-    public abstract class RCModel
+    public class RCModel
     {
         public int numberRCModdel { get; }
         public string nameRCModel { get; }
