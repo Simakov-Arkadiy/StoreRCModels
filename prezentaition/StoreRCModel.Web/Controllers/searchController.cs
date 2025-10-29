@@ -6,15 +6,15 @@ namespace StoreRCModel.Web.Controllers
 {
     public class searchController : Controller
     {
-        private IRCModelsRepository rCModelsRepository;
+        private readonly RCModelService rcmodelService;
 
-        public searchController(IRCModelsRepository rCModelsRepository)
+        public searchController(RCModelService rcmodelService)
         {
-            this.rCModelsRepository = rCModelsRepository;
+            this.rcmodelService = rcmodelService;
         }
         public IActionResult Index(string query)
         {
-            var rcmodels = rCModelsRepository.GetAllByTitel(query);
+            var rcmodels = rcmodelService.GetAllByQuery(query);
             return View(rcmodels);
         }
     }
