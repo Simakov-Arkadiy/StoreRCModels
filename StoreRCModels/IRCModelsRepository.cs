@@ -10,5 +10,6 @@ namespace StoreRCModels
     {
         RCModel[] GetAllByType(string color);
         RCModel[] GetAllByTitel(string titel);
+        RCModel GetById(int numberRCModel);
     }
 }
