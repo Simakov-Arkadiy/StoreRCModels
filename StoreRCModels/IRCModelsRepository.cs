@@ -8,6 +8,7 @@ namespace StoreRCModels
 {
     public interface IRCModelsRepository
     {
+        RCModel[] GetAllByType(string color);
         RCModel[] GetAllByTitel(string titel);
     }
 }
