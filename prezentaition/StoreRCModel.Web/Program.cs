@@ -12,6 +12,7 @@ namespace StoreRCModel.Web
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddSingleton<IRCModelsRepository, RCModelsRepository>();
+            builder.Services.AddSingleton<RCModelService>();
 
             var app = builder.Build();
 

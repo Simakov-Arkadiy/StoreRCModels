@@ -13,14 +13,15 @@ namespace StoreRCModel.Memory
 
         };
 
-        public RCModel[] GetAllByType(string color)
+        public RCModel[] GetAllByType(string type)
         {
-            throw new NotImplementedException();
+            return rcmodels.Where(RCModel => RCModel.typeRCModel.Contains(type))
+            .ToArray();
         }
 
         public RCModel[] GetAllByTitel(string title)
         {
-            return rcmodels.Where(RCModel => RCModel.nameRCModel.Contains(title))
+            return rcmodels.Where(RCModel => RCModel.nameRCModel.Contains(title) || RCModel.color.Contains(title))
                 .ToArray();
         }
     }
