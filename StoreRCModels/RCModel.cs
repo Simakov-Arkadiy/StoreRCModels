@@ -8,13 +8,17 @@ namespace StoreRCModels
         public string nameRCModel { get; }
         public string typeRCModel { get; }
         public string color {  get; }
+        public string description { get; }
+        public decimal price { get; }
 
-        public RCModel(int numberRCModel, string nameRCmodel, string typeRCModel, string color) 
+        public RCModel(int numberRCModel, string nameRCmodel, string typeRCModel, string color, string descriptoin, decimal price) 
         {
             this.numberRCModdel = numberRCModel;
             this.nameRCModel = nameRCmodel;
             this.typeRCModel = typeRCModel;
             this.color = color;
+            this.description = descriptoin;
+            this.price = price;
         }
         internal static bool IsTypeRCModel(string s)
         {

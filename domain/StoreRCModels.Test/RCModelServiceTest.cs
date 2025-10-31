@@ -15,10 +15,10 @@ namespace StoreRCModels.Test
         {
             var RCModelsRepository = new Mock<IRCModelsRepository>();
             RCModelsRepository.Setup(Xunit => Xunit.GetAllByType(It.IsAny<string>()))
-                .Returns(new[] { new RCModel(1, " ", " ", " ") });
+                .Returns(new[] { new RCModel(1, " ", " ", " ", " ", 0m) });
 
             RCModelsRepository.Setup(Xunit => Xunit.GetAllByTitel(It.IsAny<string>()))
-                .Returns(new[] { new RCModel(2, " ", " ", " ") });
+                .Returns(new[] { new RCModel(2, " ", " ", " ", " ", 0m) });
 
             var rcmodelService = new RCModelService(RCModelsRepository.Object);
             var actual = rcmodelService.GetAllByQuery("Tank");
@@ -30,10 +30,10 @@ namespace StoreRCModels.Test
         {
             var RCModelsRepository = new Mock<IRCModelsRepository>();
             RCModelsRepository.Setup(Xunit => Xunit.GetAllByType(It.IsAny<string>()))
-                .Returns(new[] { new RCModel(1, " ", " ", " ") });
+                .Returns(new[] { new RCModel(1, " ", " ", " ", " ",0m) });
 
             RCModelsRepository.Setup(Xunit => Xunit.GetAllByTitel(It.IsAny<string>()))
-                .Returns(new[] { new RCModel(2, " ", " ", " ") });
+                .Returns(new[] { new RCModel(2, " ", " ", " ", " ",0m) });
 
             var rcmodelService = new RCModelService(RCModelsRepository.Object);
             var actual = rcmodelService.GetAllByQuery("Tank23");
