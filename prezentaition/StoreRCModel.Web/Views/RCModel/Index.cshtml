@@ -8,4 +8,8 @@
 <p><strong>@Model.typeRCModel</strong></p>
 <p>@Model.description</p>
 <p>Цена <strong>@Model.price</strong></p>
+<form action="@Url.Action("Add","Clart")" method="post">
+    <input type="hidden" name="id" value="@Model.numberRCModdel"/>
+    <button class="btn btn-outline-success" type="submit">В корзину</button>
+</form>
 

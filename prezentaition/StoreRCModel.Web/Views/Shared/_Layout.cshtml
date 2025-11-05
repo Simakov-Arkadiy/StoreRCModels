@@ -17,6 +17,27 @@
                 <input class="form-control mr-sm-2" type="search" name="query" placeholder="название или тип" /> 
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">искать</button>
             </form> 
+            <span class="navbar-text modal-lg-auto">
+                @{
+
+                    Clart cart;
+                    if(!Context.Session.TryGetCart(out cart))
+                    {
+                        cart = new Clart();
+                    }
+
+                    if(cart.items.Count == 0)
+                    {
+                        @:корзина пуста
+                    }
+                    else
+                    {
+                        @:товаров @cart.items.Count на сумму @cart.amount
+                    }
+                }
+            </span>
+
+            
         </nav>
     </header>
     <div class="container">

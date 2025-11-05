@@ -11,6 +11,13 @@ namespace StoreRCModel.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromMinutes(20);
+                option.Cookie.HttpOnly = true;
+                option.Cookie.IsEssential = true;
+            });
             builder.Services.AddSingleton<IRCModelsRepository, RCModelsRepository>();
             builder.Services.AddSingleton<RCModelService>();
 
@@ -28,6 +35,7 @@ namespace StoreRCModel.Web
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.MapStaticAssets();
             app.MapControllerRoute(
