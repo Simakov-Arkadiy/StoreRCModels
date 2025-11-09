@@ -21,7 +21,7 @@
                 @{
                     if(Context.Session.TryGetCart(out Clart clart)&& clart.TotalCount > 0)
                     {
-                        <a href="">Товаров @clart.TotalCount на сумму @clart.TotalPrice</a>
+                        <a href="@Url.Action("Index","Order")">Товаров @clart.TotalCount на сумму @clart.TotalPrice</a>
                     }
                     else
                     {

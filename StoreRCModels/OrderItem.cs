@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace StoreRCModels
 {
-    public class OderItem
+    public class OrderItem
     {
         public int ModelId { get;}
         public int Count { get;}
         public decimal Price {  get;}
 
-        public OderItem(int modelId, int count, decimal price)
+        public OrderItem(int modelId, int count, decimal price)
         {
             if(count <= 0)
             {

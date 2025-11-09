@@ -14,7 +14,7 @@ namespace StoreRCModels.Test
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
                 int count = 0;
-                new OderItem(1, count, 0m);
+                new OrderItem(1, count, 0m);
 
             });
         }
@@ -25,21 +25,21 @@ namespace StoreRCModels.Test
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
                 int count = -1;
-                new OderItem(1, count, 0m);
+                new OrderItem(1, count, 0m);
             });
         }
 
         [Fact]
         public void OderItem_WithPositiveCount_SetsCount()
         {
-            var orderItem = new OderItem(1,2,3m);
+            var orderItem = new OrderItem(1,2,3m);
             Assert.Equal(2, orderItem.Count);
             Assert.Equal(1, orderItem.ModelId);
             Assert.Equal(3m, orderItem.Price);
             Assert.Throws<ArgumentOutOfRangeException>(() =>
             {
                 int count = 0;
-                new OderItem(1, count, 0m);
+                new OrderItem(1, count, 0m);
             });
         }
     }

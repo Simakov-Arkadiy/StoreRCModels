@@ -16,13 +16,13 @@ namespace StoreRCModels.Test
         [Fact]
         public void TotalCount_WithEmtyItems_ReturnZero()
         {
-            var order = new Order(1, new OderItem[0]);
+            var order = new Order(1, new OrderItem[0]);
             Assert.Equal(0, order.TotalCount);
         }
         [Fact]
         public void TotalPrice_WithEmtyItems_ReturnZero()
         {
-            var order = new Order(1, new OderItem[0]);
+            var order = new Order(1, new OrderItem[0]);
             Assert.Equal(0m, order.TotalCount);
         }
         [Fact]
@@ -30,8 +30,8 @@ namespace StoreRCModels.Test
         {
             var order = new Order(1, new [] 
             {
-                new OderItem(1,3,10m),
-                new OderItem(2,5,100m),
+                new OrderItem(1,3,10m),
+                new OrderItem(2,5,100m),
             });
             Assert.Equal(3+5, order.TotalCount);
         }
@@ -40,8 +40,8 @@ namespace StoreRCModels.Test
         {
             var order = new Order(1, new[]
             {
-                new OderItem(1,3,10m),
-                new OderItem(2,5,100m),
+                new OrderItem(1,3,10m),
+                new OrderItem(2,5,100m),
             });
             Assert.Equal(3*10m + 5*100m, order.TotalPrice);
         }

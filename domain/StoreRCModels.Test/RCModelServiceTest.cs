@@ -22,7 +22,7 @@ namespace StoreRCModels.Test
 
             var rcmodelService = new RCModelService(RCModelsRepository.Object);
             var actual = rcmodelService.GetAllByQuery("Tank");
-            Assert.Collection(actual, rcmodel => Assert.Equal(1, rcmodel.numberRCModdel));
+            Assert.Collection(actual, rcmodel => Assert.Equal(1, rcmodel.numberRCModel));
         }
 
         [Fact]
@@ -37,7 +37,7 @@ namespace StoreRCModels.Test
 
             var rcmodelService = new RCModelService(RCModelsRepository.Object);
             var actual = rcmodelService.GetAllByQuery("Tank23");
-            Assert.Collection(actual, rcmodel => Assert.Equal(2, rcmodel.numberRCModdel));
+            Assert.Collection(actual, rcmodel => Assert.Equal(2, rcmodel.numberRCModel));
         }
     }
 }

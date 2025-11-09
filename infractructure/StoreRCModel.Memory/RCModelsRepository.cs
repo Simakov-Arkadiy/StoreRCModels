@@ -1,6 +1,7 @@
 ﻿using StoreRCModels;
 using System;
 using System.Linq;
+using static System.Reflection.Metadata.BlobBuilder;
 namespace StoreRCModel.Memory
 {
     public class RCModelsRepository : IRCModelsRepository
@@ -27,7 +28,16 @@ namespace StoreRCModel.Memory
 
         public RCModel GetById(int numberRCModel2)
         {
-            return rcmodels.Single(rcmodel => rcmodel.numberRCModdel == numberRCModel2);
+            return rcmodels.Single(rcmodel => rcmodel.numberRCModel == numberRCModel2);
+        }
+
+        public RCModel[] GetAllById(IEnumerable<int> rcmodelIds)
+        {
+            var foundRCModels = from rcmodel in rcmodels
+                             join rcmodelId in rcmodelIds on rcmodel.numberRCModel equals rcmodelId
+                             select rcmodel;
+
+            return foundRCModels.ToArray();
         }
     }
 }

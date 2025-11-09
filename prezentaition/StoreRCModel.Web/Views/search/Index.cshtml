@@ -15,7 +15,7 @@ else
 {
     <ul>@foreach(var rcmodel in Model)
         {
-            <li><a href="@Url.Action("Index","RCModel", new{id = rcmodel.numberRCModdel })"> @rcmodel.nameRCModel</a></li>
+            <li><a href="@Url.Action("Index","RCModel", new{id = rcmodel.numberRCModel })"> @rcmodel.nameRCModel</a></li>
         }</ul>
 }
 

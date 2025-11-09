@@ -9,10 +9,10 @@ namespace StoreRCModels
     public class Order
     {
         public int Id { get;}
-        private List<OderItem> items;
-        public IReadOnlyCollection<OderItem> Items
+        private List<OrderItem> items;
+        public IReadOnlyCollection<OrderItem> Items
         {
-            get { return Items; }
+            get { return items; }
         }
         public int TotalCount
         {
@@ -22,14 +22,14 @@ namespace StoreRCModels
         {
             get { return items.Sum(item => item.Price*item.Count); }
         }
-        public Order(int id, IEnumerable<OderItem> items) 
+        public Order(int id, IEnumerable<OrderItem> items) 
         {
             if(items == null)
             {
                 throw new ArgumentNullException(nameof(items));
             }
             Id = id;
-            this.items = new List<OderItem>(items);
+            this.items = new List<OrderItem>(items);
         }
         public void AddItem(RCModel rcmodel, int count)
         {
@@ -37,15 +37,15 @@ namespace StoreRCModels
             {
                 throw new ArgumentNullException(nameof(rcmodel));
             }
-                var item = items.SingleOrDefault(x => x.ModelId == rcmodel.numberRCModdel);
+                var item = items.SingleOrDefault(x => x.ModelId == rcmodel.numberRCModel);
                 if(item == null)
                 {
-                    items.Add(new OderItem(rcmodel.numberRCModdel, count, rcmodel.price));
+                    items.Add(new OrderItem(rcmodel.numberRCModel, count, rcmodel.price));
                 }
                 else
                 {
                     items.Remove(item);
-                    items.Add(new OderItem(rcmodel.numberRCModdel, item.Count + count, rcmodel.price));
+                    items.Add(new OrderItem(rcmodel.numberRCModel, item.Count + count, rcmodel.price));
                 }
             
         }
