@@ -4,7 +4,7 @@ namespace StoreRCModels
 {
     public class RCModel
     {
-        public int numberRCModdel { get; }
+        public int numberRCModel { get; }
         public string nameRCModel { get; }
         public string typeRCModel { get; }
         public string color {  get; }
@@ -13,7 +13,7 @@ namespace StoreRCModels
 
         public RCModel(int numberRCModel, string nameRCmodel, string typeRCModel, string color, string descriptoin, decimal price) 
         {
-            this.numberRCModdel = numberRCModel;
+            this.numberRCModel = numberRCModel;
             this.nameRCModel = nameRCmodel;
             this.typeRCModel = typeRCModel;
             this.color = color;

@@ -2,7 +2,14 @@
 {
     public class Clart
     {
-        public Dictionary<int, int> items { get; set; } = new Dictionary<int, int>();
-        public decimal amount { get; set; } 
+        public int OrderId {get;}
+        public int TotalCount { get; set; }
+        public decimal TotalPrice { get; set; }
+        public Clart(int orderId) 
+        {
+            OrderId = orderId;
+            TotalCount = 0;
+            TotalPrice = 0m;
+        }
     }
 }
