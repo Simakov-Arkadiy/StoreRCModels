@@ -7,29 +7,33 @@ namespace StoreRCModel.Web.Controllers
     public class ClartController : Controller
     {
         private readonly IRCModelsRepository modelsRepository;
+        private readonly IOrderRepository ordersRepository;
 
-        public ClartController(IRCModelsRepository modelsRepository)
+        public ClartController(IRCModelsRepository modelsRepository, IOrderRepository ordersRepository)
         {
             this.modelsRepository = modelsRepository;
+            this.ordersRepository = ordersRepository;
         }
         public IActionResult Add(int id)
         {
-            var model = modelsRepository.GetById(id);
+            Order order;
             Clart clart;
-            if(!HttpContext.Session.TryGetCart(out clart))
+            if(HttpContext.Session.TryGetCart(out clart))
             {
-                clart = new Clart();
-            }
-            if (clart.items.ContainsKey(id))
-            {
-                clart.items[id]++;
-                clart.amount += model.price;
+                order = ordersRepository.GetById(clart.OrderId);
             }
             else
             {
-                clart.items[id] = 1;
-                clart.amount += model.price;
+                order = ordersRepository.Create();
+                clart = new Clart(order.Id);
             }
+            var model = modelsRepository.GetById(id);
+            order.AddItem(model, 1);
+            ordersRepository.Update(order);
+
+            clart.TotalCount = order.TotalCount;
+            clart.TotalPrice = order.TotalPrice;
+
             HttpContext.Session.Set(clart);
             return RedirectToAction("Index","RCModel", new {id});
         }

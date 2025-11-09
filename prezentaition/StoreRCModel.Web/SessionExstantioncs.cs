@@ -1,6 +1,8 @@
 ﻿
 
+using Microsoft.CodeAnalysis.Elfie.Serialization;
 using StoreRCModel.Web.Models;
+using System.ComponentModel;
 using System.Text;
 
 namespace StoreRCModel.Web
@@ -15,13 +17,9 @@ namespace StoreRCModel.Web
             using(var stream = new MemoryStream())
             using(var writer = new BinaryWriter(stream, Encoding.UTF8, true))
             {
-                writer.Write(value.items.Count);
-                foreach (var item in value.items)
-                {
-                    writer.Write(item.Key);
-                    writer.Write(item.Value);
-                }
-                writer.Write(value.amount);
+                writer.Write(value.OrderId);
+                writer.Write(value.TotalCount);
+                writer.Write(value.TotalPrice);
                 session.Set(key, stream.ToArray());
             }
         }
@@ -32,16 +30,15 @@ namespace StoreRCModel.Web
                 using (var stream = new MemoryStream(buffer))
                 using (var reader = new BinaryReader(stream, Encoding.UTF8, true))
                 {
-                    value = new Clart();
-                    var lenght = reader.ReadInt32();
-                    for (int i = 0; i < lenght; i++) 
-                    {
-                        var bookId = reader.ReadInt32();
-                        var count = reader.ReadInt32();
+                    var orderId = reader.ReadInt32();
+                    var totalCount = reader.ReadInt32();
+                    var totalPrice = reader.ReadDecimal();
 
-                        value.items.Add(bookId, count);
-                    }
-                    value.amount = reader.ReadDecimal();
+                    value = new Clart(orderId)
+                    {
+                        TotalCount = totalCount,
+                        TotalPrice = totalPrice,
+                    };
                     return true;    
                 }
             }

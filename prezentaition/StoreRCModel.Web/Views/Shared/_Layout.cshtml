@@ -19,20 +19,13 @@
             </form> 
             <span class="navbar-text modal-lg-auto">
                 @{
-
-                    Clart cart;
-                    if(!Context.Session.TryGetCart(out cart))
+                    if(Context.Session.TryGetCart(out Clart clart)&& clart.TotalCount > 0)
                     {
-                        cart = new Clart();
-                    }
-
-                    if(cart.items.Count == 0)
-                    {
-                        @:корзина пуста
+                        <a href="">Товаров @clart.TotalCount на сумму @clart.TotalPrice</a>
                     }
                     else
                     {
-                        @:товаров @cart.items.Count на сумму @cart.amount
+                        @: корзина пуста
                     }
                 }
             </span>
